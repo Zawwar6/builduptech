@@ -46,7 +46,15 @@ export default function Navbar() {
               <motion.button key={id} initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.05 * i }}
                 onClick={() => go(id)} className="text-left text-5xl font-bold tracking-tighter">{l}</motion.button>
             ))}
-            <Button onClick={() => go("contact")} className="mt-6">Start a Project</Button>
+            <div className="h-btn">
+                      <Button
+                        onClick={() =>
+                          window.open("https://wa.me/923321360570?text=Hi%2C%20I%20want%20to%20start%20a%20project%20with%20BuiltUp%20Tech.", "_blank")
+                        }
+                      >
+                        Start a Project →
+                      </Button>
+                    </div>
           </motion.div>
         )}
       </AnimatePresence>

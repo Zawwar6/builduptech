@@ -9,7 +9,15 @@ export default function CTA() {
       <div className="relative">
         <h2 className="text-5xl font-extrabold leading-[0.95] tracking-tighter sm:text-8xl">Have an idea?<br />Let's build it.</h2>
         <p className="mx-auto mt-8 max-w-md text-lg text-muted">Tell us what you're working on and let's turn the idea into something real.</p>
-        <div className="mt-12"><MagneticButton><Button onClick={() => scrollToId("contact")} className="!px-10 !py-5">START A PROJECT →</Button></MagneticButton></div>
+        <div className="h-btn mt-10">
+                  <Button
+                    onClick={() =>
+                      window.open("https://wa.me/923321360570?text=Hi%2C%20I%20want%20to%20start%20a%20project%20with%20BuiltUp%20Tech.", "_blank")
+                    }
+                  >
+                    Start a Project →
+                  </Button>
+                </div>
       </div>
     </section>
   );

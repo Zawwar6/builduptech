@@ -33,7 +33,15 @@ export default function Hero() {
         </h1>
         <p className="h-copy mt-8 max-w-xl text-lg text-muted">Websites, interfaces, visual content and digital experiences built with creativity and technology.</p>
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-          <div className="h-btn"><Button onClick={() => scrollToId("contact")}>Start a Project →</Button></div>
+          <div className="h-btn">
+          <Button
+            onClick={() =>
+              window.open("https://wa.me/923321360570?text=Hi%2C%20I%20want%20to%20start%20a%20project%20with%20BuiltUp%20Tech.", "_blank")
+            }
+          >
+            Start a Project →
+          </Button>
+        </div>
           <div className="h-btn"><Button variant="ghost" onClick={() => scrollToId("work")}>Explore Our Work ↓</Button></div>
         </div>
       </div>
