@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import SectionHeading from "../ui/SectionHeading.jsx";
 import Button from "../ui/Button.jsx";
@@ -18,8 +19,11 @@ export default function Contact() {
   const [values, setValues] = useState(empty);
   const [errors, setErrors] = useState({});
 
-  const set = (k) => (e) => {
-    setValues({ ...values, [k]: e.target.value });
+  const set = (key) => (e) => {
+    setValues((prev) => ({
+      ...prev,
+      [key]: e.target.value,
+    }));
   };
 
   const validate = () => {
@@ -29,7 +33,7 @@ export default function Contact() {
       e.name = "Enter your name.";
     }
 
-    if (!/^\S+@\S+\.\S+$/.test(values.email.trim())) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) {
       e.email = "Enter a valid email address.";
     }
 
@@ -52,7 +56,6 @@ export default function Contact() {
 
     if (Object.keys(validationErrors).length > 0) return;
 
-    // Replace with your actual WhatsApp number
     const whatsappNumber = "923321360570";
 
     const message = `
@@ -72,7 +75,7 @@ Sent via BuiltUp Tech Website
 
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-    window.open(whatsappURL, "_blank");
+    window.open(whatsappURL, "_blank", "noopener,noreferrer");
   };
 
   const Err = ({ k }) =>
@@ -107,6 +110,7 @@ Sent via BuiltUp Tech Website
 
             <input
               id="name"
+              name="name"
               className={field}
               placeholder="Name"
               value={values.name}
@@ -125,6 +129,7 @@ Sent via BuiltUp Tech Website
 
             <input
               id="email"
+              name="email"
               type="email"
               className={field}
               placeholder="Email"
@@ -144,6 +149,7 @@ Sent via BuiltUp Tech Website
 
             <input
               id="company"
+              name="company"
               className={field}
               placeholder="Company (optional)"
               value={values.company}
@@ -158,6 +164,7 @@ Sent via BuiltUp Tech Website
 
             <select
               id="service"
+              name="service"
               className={`${field} bg-ink`}
               value={values.service}
               onChange={set("service")}
@@ -183,6 +190,7 @@ Sent via BuiltUp Tech Website
 
             <textarea
               id="message"
+              name="message"
               rows={4}
               className={field}
               placeholder="Tell us about your project..."
